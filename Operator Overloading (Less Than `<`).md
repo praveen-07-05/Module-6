@@ -1,63 +1,45 @@
-# 🐍 Python OOP: Abstract Class & Method Example
+# 🐍 Python OOP: Operator Overloading (Less Than `<`)
 
 ## 🎯 AIM
 
-To create an **abstract class** named `Shape` with an **abstract method** `calculate_area`, and implement this method in two subclasses: `Rectangle` and `Circle`.
+To write a Python program that demonstrates **operator overloading** by overloading the **less than (`<`)** operator using a custom class.
 
 ---
 
 ## 🧠 ALGORITHM
 
-1. **Import ABC module**:
-   - Use `from abc import ABC, abstractmethod` to define abstract classes and methods.
+1. **Create Class `A`**:
+   - Define the `__init__()` method to initialize the object with a value `a`.
 
-2. **Create Abstract Class `Shape`**:
-   - Define an abstract method `calculate_area()` with `@abstractmethod`.
+2. **Overload the `<` Operator**:
+   - Define the `__lt__()` method with logic:
+     - If `self.a < o.a`, return `"ob1 is less than ob2"`
+     - Else, return `"ob2 is less than ob1"`
 
-3. **Create Subclass `Rectangle`**:
-   - Set default values for `length` and `breadth`.
-   - Override `calculate_area()` to compute the rectangle area.
+3. **Create Objects**:
+   - Instantiate two objects `ob1` and `ob2` with values.
 
-4. **Create Subclass `Circle`**:
-   - Set default value for `radius`.
-   - Override `calculate_area()` to compute the circle area.
-
-5. **Create Objects & Call Methods**:
-   - Instantiate `Rectangle` and `Circle`.
-   - Call their `calculate_area()` methods.
+4. **Use `<` Operator**:
+   - Use `print(ob1 < ob2)` to trigger the overloaded behavior.
 
 ---
 
 ## 💻 Program
 ~~~
-from abc import ABC, abstractmethod
-import math
-class Shape(ABC):
-    @abstractmethod
-    def calculate_area(self):
-        pass
-class Rectangle(Shape):
-    def __init__(self, length=1, breadth=1):
-        self.length = length
-        self.breadth = breadth
-
-    def calculate_area(self):
-        return self.length * self.breadth
-class Circle(Shape):
-    def __init__(self, radius=1):
-        self.radius = radius
-
-    def calculate_area(self):
-        return math.pi * self.radius *self radius
-rect = Rectangle(5, 3)
-circle = Circle(4)
-
-print("Area of Rectangle:", rect.calculate_area())
-print("Area of Circle:", circle.calculate_area())
-
+class A:
+    def __init__(self, a):
+        self.a = a
+    def __lt__(self, other):
+        if(self.a<other.a):
+            return "ob1 is less than ob2"
+        else:
+            return "ob2 is less than ob1"
+ob1 = A(20)
+ob2 = A(3)
+print(ob1 < ob2)
 ~~~
 ## Output
-![WhatsApp Image 2025-10-20 at 19 15 32_e3f8677e](https://github.com/user-attachments/assets/75bbaa55-c4bc-45c0-b43e-c85340fc058f)
+<img width="944" height="170" alt="Screenshot 2025-10-20 192450" src="https://github.com/user-attachments/assets/123a2721-13f7-49ee-8962-20fbd8fa3d8a" />
 
 ## Result
 Thus , the program has been executed succesfully.
